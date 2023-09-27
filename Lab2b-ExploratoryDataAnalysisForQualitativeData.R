@@ -288,7 +288,7 @@ kable_theme <- function(dat, caption) {
 
 # STEP 3. Load the Dataset ----
 student_performance_dataset <-
-  read_csv("data/20230412-20230719-BI1-BBIT4-1-StudentPerformanceDataset.CSV",
+  read_csv("data/20230412-20230719-BI1-BBIT4-1-StudentPerformanceDataset - dataset.csv",
            col_types =
              cols(
                class_group = col_factor(levels = c("A", "B", "C")),
@@ -299,7 +299,7 @@ student_performance_dataset <-
                motivator = col_factor(levels = c("1", "0")),
                read_content_before_lecture =
                  col_factor(levels = c("1", "2", "3", "4", "5")),
-               anticipate_test_questions =
+               anticipate_test_questions = 
                  col_factor(levels = c("1", "2", "3", "4", "5")),
                answer_rhetorical_questions =
                  col_factor(levels = c("1", "2", "3", "4", "5")),
@@ -370,7 +370,7 @@ dim(student_performance_dataset)
 
 # Data Types
 sapply(student_performance_dataset, class)
-glimpse(student_performance_dataset)
+#glimpse(student_performance_dataset)
 
 # Summary of each variable
 summary(student_performance_dataset)
