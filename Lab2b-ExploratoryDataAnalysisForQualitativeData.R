@@ -299,7 +299,7 @@ student_performance_dataset <-
                motivator = col_factor(levels = c("1", "0")),
                read_content_before_lecture =
                  col_factor(levels = c("1", "2", "3", "4", "5")),
-               anticipate_test_questions = 
+               anticipate_test_questions =
                  col_factor(levels = c("1", "2", "3", "4", "5")),
                answer_rhetorical_questions =
                  col_factor(levels = c("1", "2", "3", "4", "5")),
@@ -370,7 +370,7 @@ dim(student_performance_dataset)
 
 # Data Types
 sapply(student_performance_dataset, class)
-#glimpse(student_performance_dataset)
+glimpse(student_performance_dataset)
 
 # Summary of each variable
 summary(student_performance_dataset)
@@ -496,7 +496,7 @@ evaluation_likes_and_wishes <- student_performance_dataset %>%
   mutate(`Student's Gender` =
            ifelse(gender == 1, "Male", "Female")) %>%
   rename(`Class Group` = class_group) %>%
-  rename(Likes = `D - 1. \nWrite two things you like about the teaching and learning in this unit so far.`) %>% # nolint
+  rename(Likes = `D - 1. Write two things you like about the teaching and learning in this unit so far.`) %>% # nolint
   rename(Wishes = `D - 2. Write at least one recommendation to improve the teaching and learning in this unit (for the remaining weeks in the semester)`) %>% # nolint
   select(`Class Group`,
          `Student's Gender`, `Average Course Evaluation Rating`,
