@@ -642,6 +642,34 @@ evaluation_wishes_filtered <- evaluation_likes_and_wishes %>% # nolint
 write.csv(evaluation_wishes_filtered,
           file = "data/evaluation_wishes_filtered.csv",
           row.names = FALSE)
+  
+
+#performing stemming on the data
+#loading the required tools
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(textstem, dplyr)
+
+# Load the textstem package
+library(textstem)
+
+# Apply stemming to the "Likes (tokenized)" column in evaluation_likes_filtered
+evaluation_likes_filtered <- evaluation_likes_filtered %>%
+  mutate(`Likes (stemmed)` = stem_words(`Likes (tokenized)`))
+
+# Apply stemming to the "Wishes (tokenized)" column in evaluation_wishes_filtered
+evaluation_wishes_filtered <- evaluation_wishes_filtered %>%
+  mutate(`Wishes (stemmed)` = stem_words(`Wishes (tokenized)`))
+
+# Save the resulting data frames as CSV files if needed
+write.csv(evaluation_likes_filtered,
+          file = "data/evaluation_likes_filtered_stemmed.csv",
+          row.names = FALSE)
+
+write.csv(evaluation_wishes_filtered,
+          file = "data/evaluation_wishes_filtered_stemmed.csv",
+          row.names = FALSE)
+
+
 
 # STEP 6. Word Count ----
 ## Evaluation Likes ----
